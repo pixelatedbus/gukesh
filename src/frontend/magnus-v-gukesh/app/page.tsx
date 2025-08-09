@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import { AxiosResponse } from 'axios';
 
 interface GameState {
     board_fen: string;
@@ -21,8 +22,14 @@ interface AnalysisInfo {
     to: string;
     evaluation: number;
     mate_in: number | null;
-    analysis: Record<string, any>;
+    analysis: Record<string, string | number>;
 }
+
+interface ErrorResponse {
+    error: string;
+}
+
+type ApiResponseData = GameState | ErrorResponse;
 
 type BoardArray = (string | null)[][];
 type SelectedSquare = { row: number; col: number } | null;
@@ -95,12 +102,12 @@ export default function Home() {
     }, [game]);
 
     // --- API Handlers ---
-    const handleApiCall = async (apiCall: () => Promise<any>) => {
+    const handleApiCall = async (apiCall: () => Promise<AxiosResponse<ApiResponseData>>) => {
         setIsLoading(true);
         setError('');
         try {
             const response = await apiCall();
-            if (response.data.error) {
+            if ("error" in response.data) {
                 setError(response.data.error);
             } else {
                 setGame(response.data);

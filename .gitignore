@@ -1,1 +1,71 @@
-node_modules
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.env
+*.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.sqlite3
+*.db
+*.log
+
+# FastAPI specific
+instance/
+*.db
+*.sqlite3
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Next.js / Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.next/
+out/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build output
+dist/
+build/
+*.tgz
+
+# Dependency directories
+.pnpm/
+.package-lock.json
+yarn.lock
+
+# Misc
+*.swp
+*.swo
+.idea/
+*.bak
+*.tmp
+*.orig
+*.rej
+*.sass-cache/
+.cache/
+coverage/
+*.cover
+*.pyc
+*.pyo
+*.pyd
+*.mypy_cache/
+*.pytest_cache/
+*.coverage
+*.egg-info/
+.eggs/
+htmlcov/
