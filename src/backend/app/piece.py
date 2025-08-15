@@ -83,10 +83,6 @@ class Queen(Piece):
         return possible_moves
 
     def generate_attack_squares(self, board_instance: 'Board') -> set[tuple]:
-        """
-        FIX: Generates all squares a queen attacks, even those behind an enemy piece.
-        This is crucial for correct check detection.
-        """
         attack_squares = set()
         directions = [
             (-1, -1), (-1, 0), (-1, 1), (0, -1),
