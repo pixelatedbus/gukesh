@@ -110,7 +110,7 @@ class Game:
         elif command == 'first': self.current_move_index = 0
         elif command == 'last': self.current_move_index = len(self.board.move_history) - 1
         fen_to_load = self.board.move_history[self.current_move_index]
-        self.board._load_from_fen(fen_to_load)
+        self.board.load_from_fen(fen_to_load)
         self.board.to_move = 'black' if (self.current_move_index % 2) == 0 else 'white'
         return self.get_game_state()
     def get_winner(self):
